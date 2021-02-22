@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phas Survival Guide</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="A Phasmophobia Web App for help with tracking ghost evidence and information."
+    />
+    <meta
+      name="keywords"
+      content="Phasmophobia, PhasmoHelpeor, Phasmo, Companion App, Web App, Phasmo Site"
+    />
+    <meta name="author" content="zuffdaddy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="desc" class="minimal">
+        <h1>Phasmophobia Survival Guide</h1>
+        <p>
+          A web app for tracking evidence during contracts in the game
+          Phasmophobia. This is a supplemental tool for the journal on hunts.
+        </p>
+      </div>
+
+      <div class="toggle_buttons">
+        <a href="javascript:void(0);" id="toggle_minimal">Min. Mode</a>
+        <a href="javascript:void(0);" id="toggle_instructions"
+          >Toggle Instructions</a
+        >
+        <a href="javascript:void(0);" id="toggle_descriptions"
+          >Toggle Ghost Info</a
+        >
+        <a href="javascript:void(0);" id="reset">Reset</a>
+      </div>
+      <!-- toggle_buttons -->
+
+      <div class="instructions">
+        <h2>Instructions:</h2>
+        <ol>
+          <li>Type in the name of your ghost in the Ghost Name text box.</li>
+          <li>
+            Click the "Shy Ghost" box if the ghost prefers hunters to be alone
+          </li>
+          <li>
+            Click any optional objectives for easier tracking once you're in the
+            house
+          </li>
+          <li>
+            Click evidence as you find it. As you select evidence the ghosts
+            below narrow down to possible choices.
+          </li>
+          <li>
+            Once your contract is finished, click the "Reset" button near the
+            top to start over!
+          </li>
+        </ol>
+      </div>
+      <form>
+        <div id="ghost_info">
+          <h2 class="minimal">Ghost Information:</h2>
+          <p class="instructions">
+            Type in your ghost name and select Shy Ghost if the ghost prefers
+            speaking to people alone.
+          </p>
+          <div>
+            <div id="ghost_name_holder">
+              <input type="text" class="ghost_name" placeholder="Ghost Name" />
+            </div>
+            <div>
+              <input type="checkbox" id="shy" />
+              <label for="shy">Shy Ghost</label>
+            </div>
+            <!-- <div>
+						<input id="reset" type="reset" value="Reset">
+					</div> -->
+          </div>
+        </div>
+        <!-- ghost_info -->
+        <span class="minimal" style="display: none"></span>
+
+        <div id="ghost_aggression">
+          <h2 class="minimal">Ghost Aggression:</h2>
+          <p class="instructions">
+            Select your radio hint for the contract here.
+          </p>
+          <div class="row">
+            <div id="aggression_list">
+              <div>
+                <input type="checkbox" id="aggressive" />
+                <label for="aggressive"
+                  >Reports of Violence, left in a hurry.</label
+                >
+              </div>
+              <div>
+                <input type="checkbox" id="nonefriendly1" />
+                <label for="nonefriendly1">No Reports, left in a hurry</label>
+              </div>
+              <div>
+                <input type="checkbox" id="nonefriendly2" />
+                <label for="nonefriendly2">Possible Ghost Sighting</label>
+              </div>
+              <div>
+                <input type="checkbox" id="friendly2" />
+                <label for="friendly2">No Violence or sightings</label>
+              </div>
+              <div>
+                <input type="checkbox" id="friendly1" />
+                <label for="friendly1">Lights Switching</label>
+              </div>
+            </div>
+            <!-- aggression_list -->
+            <div id="aggression_hints" class="hidden">
+              <div id="violent" class="hidden">
+                <h2>Violent, Aggressive, Dangerous</h2>
+                <p>
+                  The ghost you are investigating is violent and aggressive.
+                  <em>run now while you can.</em><br />
+                  Aggressive ghosts are believed to have a tendency to attack
+                  more often. Make sure you are keeping tabs on your nearest
+                  hiding spot <em>just in case</em>.
+                </p>
+                <div class="minimal">
+                  <h4>Possible Phrases</h4>
+                  <q
+                    >Got the Intel, looks like this is going to be a tough one.
+                    We've had reports of violence, and it looks like they left
+                    in a hurry.</q
+                  >
+                </div>
+              </div>
+              <div id="unfriendly" class="hidden">
+                <h2>Unfriendly</h2>
+                <p>
+                  The ghost you are investigating is quite unfriendly to welcome
+                  vistors. It's not as dangerous as a Violent ghost, but
+                  likewise any ghost do not let your guard down...
+                </p>
+                <div class="minimal">
+                  <h4>Possible Phrases</h4>
+                  <p>
+                    <q
+                      >Nothing to report, but it looks like whoever was here
+                      left in a hurry...</q
+                    >
+                  </p>
+                  <p>
+                    <q
+                      >I've got a report that suggests a possible ghost
+                      sighting.</q
+                    >
+                  </p>
+                </div>
+              </div>
+              <div id="placid" class="hidden">
+                <h2>Placid</h2>
+                <p>
+                  The ghost you are investigating is placid, sometimes shy and
+                  shows little activity. However, do not mistake this ghost for
+                  being safe. They are still very powerful and if/when provoked,
+                  just like any ghost, they can be very dangerous...
+                </p>
+                <div class="minimal">
+                  <h4>Possible Phrases</h4>
+                  <p>
+                    <q
+                      >New Intel: Reports of lights switching. Possibly
+                      harmless, but be careful out there.</q
+                    >
+                  </p>
+                  <p>
+                    <q
+                      >There's been no reports of violence or sightings, but
+                      please remain careful.</q
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- aggression_hints -->
+          </div>
+        </div>
+        <!-- ghost_aggression -->
+        <span class="minimal" style="display: none"></span>
+
+        <div id="objectives">
+          <h2 class="minimal">Optional Objectives:</h2>
+          <p class="instructions">
+            Select your optional objectives for the contract here.
+          </p>
+          <div id="objective_list">
+            <div style="display: none">
+              <input type="checkbox" id="water" />
+              <label for="water">Water</label>
+            </div>
+            <div>
+              <input type="checkbox" id="photo" />
+              <label for="photo">Photo</label>
+            </div>
+            <div>
+              <input type="checkbox" id="event" />
+              <label for="event">Event</label>
+            </div>
+            <div>
+              <input type="checkbox" id="motion" />
+              <label for="motion">Motion</label>
+            </div>
+            <div>
+              <input type="checkbox" id="temp" />
+              <label for="temp">Temperature</label>
+            </div>
+            <div>
+              <input type="checkbox" id="crucifix" />
+              <label for="crucifix">Crucifix</label>
+            </div>
+            <div>
+              <input type="checkbox" id="emf_read" />
+              <label for="emf_read">EMF</label>
+            </div>
+            <div>
+              <input type="checkbox" id="smudge" />
+              <label for="smudge">Smudge</label>
+            </div>
+            <div>
+              <input type="checkbox" id="salt" />
+              <label for="salt">Salt</label>
+            </div>
+          </div>
+          <!-- objective_list -->
+        </div>
+        <!-- objectives -->
+        <span class="minimal" style="display: none"></span>
+        <div id="evidence">
+          <h2 class="minimal">Confirmed Evidence:</h2>
+          <p class="instructions">
+            Check off found evidence here. Evidence not necessary based on
+            previously selected evidence will be eliminated.
+          </p>
+          <ul>
+            <li>
+              <div>
+                <input type="checkbox" class="emf" id="emf" />
+                <label for="emf">EMF Level 5</label>
+              </div>
+            </li>
+            <li>
+              <div>
+                <input type="checkbox" class="writing" id="writing" />
+                <label for="writing">Ghost Writing</label>
+              </div>
+            </li>
+            <li>
+              <div>
+                <input type="checkbox" class="fingerprints" id="fingerprints" />
+                <label for="fingerprints">Fingerprints</label>
+              </div>
+            </li>
+            <li>
+              <div>
+                <input type="checkbox" class="freezing" id="freezing" />
+                <label for="freezing">Freezing Temperatures</label>
+              </div>
+            </li>
+            <li>
+              <div>
+                <input type="checkbox" class="orb" id="orb" />
+                <label for="orb">Ghost Orb</label>
+              </div>
+            </li>
+            <li>
+              <div>
+                <input type="checkbox" class="box" id="box" />
+                <label for="box">Spirit Box</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- checkboxes -->
+      </form>
+      <div class="warning">
+        <div class="warning_text">
+          Please select up to 3 pieces of evidence to narrow down the Ghost
+        </div>
+      </div>
+      <h2 class="minimal">Possible Ghosts:</h2>
+      <div id="ghosts">
+        <div class="ghost">
+          <div>
+            <h3>Banshee</h3>
+            <div class="description">
+              <p>
+                A Banshee is a natural hunter and will attack anything. It has
+                been known to stalk it’s prey one at a time until making it’s
+                kill.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>A Banshee will only target one person at a time.</p>
+              <h4>Weaknesses</h4>
+              <p>
+                Banshees fear the Crucifix Cross and will be less aggressive
+                when near one.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="emf">EMF Level 5</li>
+              <li class="fingerprints">Fingerprints</li>
+              <li class="freezing">Freezing Temperatures</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Demon</h3>
+            <div class="description">
+              <p>
+                A Demon is one of the worst Ghosts you can encounter. It has
+                been known to attack without a reason.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>Demons will attack more often than any other Ghost.</p>
+              <h4>Weaknesses</h4>
+              <p>
+                Asking a Demon successful questions on the Ouija Board won’t
+                lower the users sanity.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="writing">Ghost Writing</li>
+              <li class="box">Spirit Box</li>
+              <li class="freezing">Freezing Temperatures</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Jinn</h3>
+            <div class="description">
+              <p>
+                A Jinn is a territorial Ghost that will attack when threatened.
+                It has also been known to be able to travel at significant
+                speed.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>
+                A Jinn will travel at a a faster speed if it’s victim is far
+                away.
+              </p>
+              <h4>Weaknesses</h4>
+              <p>
+                Turning off the locations power source will prevent the Jinn
+                from using it’s ability.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="emf">EMF Level 5</li>
+              <li class="box">Spirit Box</li>
+              <li class="orb">Ghost Orb</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Mare</h3>
+            <div class="description">
+              <p>
+                A Mare is the source of all nightmares, making it most powerful
+                in the darkness.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>A Mare will have an increased chance to attack in the dark.</p>
+              <h4>Weaknesses</h4>
+              <p>
+                Turning the lights ON around the Mare will lower it’s chance to
+                attack.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="box">Spirit Box</li>
+              <li class="orb">Ghost Orb</li>
+              <li class="freezing">Freezing Temperatures</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Oni</h3>
+            <div class="description">
+              <p>
+                Oni’s are a cousin to the Demon and possess extreme strength.
+                There have been rumors that they become more active around their
+                prey.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>
+                Oni’s are more active when people are nearby and have been seen
+                moving objects at great speed.
+              </p>
+              <h4>Weaknesses</h4>
+              <p>
+                Being more active will make the Oni easier to find and identify.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="emf">EMF Level 5</li>
+              <li class="writing">Ghost Writing</li>
+              <li class="box">Spirit Box</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Phantom</h3>
+            <div class="description">
+              <p>
+                A Phantom is a Ghost that can possess the living, most commonly
+                summoned by a Ouija Board. It also induces fear into those
+                around it.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>Looking at a Phantom will considerably drop your sanity.</p>
+              <h4>Weaknesses</h4>
+              <p>
+                Taking a photo of the Phantom will make it temporarily
+                disappear.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="emf">EMF Level 5</li>
+              <li class="orb">Ghost Orb</li>
+              <li class="freezing">Freezing Temperatures</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Poltergeist</h3>
+            <div class="description">
+              <p>
+                One of the most famous Ghosts, a Poltergeist, also known as a
+                noisy ghost that can manipulate objects around it to spread fear
+                into it’s victims.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>A Poltergeist can throw huge amounts of objects at once.</p>
+              <h4>Weaknesses</h4>
+              <p>A Poltergeist is almost ineffective in an empty room.</p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="box">Spirit Box</li>
+              <li class="fingerprints">Fingerprints</li>
+              <li class="orb">Ghost Orb</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Revenant</h3>
+            <div class="description">
+              <p>
+                They are slow but violent ghosts that will attack everyone
+                indiscriminately. They also travel at a greater speed like Jinn
+                while hunting.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>Travels faster while hunting.</p>
+              <h4>Weaknesses</h4>
+              <p>
+                If you are hidden from the Revenant, their speed drops, and they
+                travel slowly.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="emf">EMF Level 5</li>
+              <li class="writing">Ghost Writing</li>
+              <li class="fingerprints">Fingerprints</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Shade</h3>
+            <div class="description">
+              <p>
+                A Shade is known to be a Shy Ghost. There is evidence that a
+                Shade will stop all paranormal activity if there are multiple
+                people nearby.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>Being shy means the Ghost will be harder to find.</p>
+              <h4>Weaknesses</h4>
+              <p>
+                The Ghost will not enter hunting mode if there is multiple
+                people nearby.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="emf">EMF Level 5</li>
+              <li class="writing">Ghost Writing</li>
+              <li class="orb">Ghost Orb</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Spirit</h3>
+            <div class="description">
+              <p>
+                A Spirit is the most common Ghost you will come across however
+                it is still very powerful and dangerous. They are usually
+                discovered at one of their hunting grounds after an unexplained
+                death.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>None.</p>
+              <h4>Weaknesses</h4>
+              <p>
+                Using Smudge Sticks on a Spirit will stop it attacking for a
+                long period of time.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="writing">Ghost Writing</li>
+              <li class="box">Spirit Box</li>
+              <li class="fingerprints">Fingerprints</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Wraith</h3>
+            <div class="description">
+              <p>
+                A Wraith is one of the most dangerous Ghosts you will find. It
+                is also the only known Ghost that has the ability of flight and
+                has sometimes been known to travel through walls.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>
+                Wraiths almost never touch the ground meaning it can’t be
+                tracked by footsteps.
+              </p>
+              <h4>Weaknesses</h4>
+              <p>Wraiths have a toxic reaction to Salt.</p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="fingerprints">Fingerprints</li>
+              <li class="freezing">Freezing Temperatures</li>
+              <li class="box">Spirit Box</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+        <div class="ghost">
+          <div>
+            <h3>Yurei</h3>
+            <div class="description">
+              <p>
+                A Yurei is a Ghost that has returned to the physical world,
+                usually for the purpose of revenge or pure hatred.
+              </p>
+              <h4>Unique Strengths</h4>
+              <p>
+                Yurei’s have been known to have a stronger effect on peoples
+                sanity.
+              </p>
+              <h4>Weaknesses</h4>
+              <p>
+                Smudging the Yurei’s room will cause it to not wander around the
+                location for a long time.
+              </p>
+              <h4>Evidence</h4>
+            </div>
+            <ul class="evidence">
+              <li class="orb">Ghost Orb</li>
+              <li class="writing">Ghost Writing</li>
+              <li class="freezing">Freezing Temperatures</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ghost -->
+      </div>
+      <!-- ghosts -->
+    </div>
+    <!-- wrapper -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="/main.js"></script>
+    <script src="https://unpkg.com/animate-css-grid@latest"></script>
+    <script>
+      const ghost = document.querySelector("#ghosts");
+      animateCSSGrid.wrapGrid(ghost, { duration: 600 });
+      const checkbox = document.querySelector("#evidence ul");
+      animateCSSGrid.wrapGrid(checkbox, { duration: 600 });
+    </script>
+  </body>
+</html>

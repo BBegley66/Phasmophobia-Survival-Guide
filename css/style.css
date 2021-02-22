@@ -1,0 +1,142 @@
+@font-face {
+  font-family: October Crow;
+  src: url("/October Crow.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: cutive;
+  src: url("/CutiveMono-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 6rem;
+  font-family: October Crow;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-image: url("../img/phas.jpg");
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+.navbar-brand {
+  font-family: October Crow;
+}
+
+.main-navbar {
+  background-color: black;
+  color: white;
+}
+
+.two_sec_row {
+  overflow: auto;
+  width: 100%;
+  display: block;
+  float: left;
+  clear: left;
+  line-height: 16px;
+}
+
+.text_block {
+  float: left;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  column-count: 1;
+  overflow: hidden;
+}
+
+.img_container {
+  height: auto;
+}
+
+.img_1 {
+  display: inline-block;
+  float: left;
+}
+
+.intro_text {
+  color: white;
+  font-size: 20px;
+  font-family: cutive monospace;
+  text-align: center;
+  display: block;
+  margin-top: 2%;
+  margin-right: 15%;
+  margin-bottom: 5%;
+  margin-left: 15%;
+}
+
+.funny {
+  display: block;
+  -webkit-column-count: 1;
+  column-count: 1;
+  width: 100%;
+  color: white;
+  margin-top: none !important;
+  margin-bottom: none !important;
+  font-family: cutive monospace;
+  float: right;
+  font-size: 25px;
+}
+
+.general_text {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-family: cutive monospace;
+  color: white;
+  font-size: 25px;
+}
+
+.img_2 {
+  display: inline-block;
+  float: right;
+}
+
+.img_3 {
+  float: left;
+  display: inline-block;
+}
+
+.immersive {
+  display: block;
+  font-family: cutive monospace;
+  font-size: 20px;
+  color: white;
+}
+
+.ghost {
+  color: white;
+  font-family: cutive monospace;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 20;
+  margin-top: 15;
+  display: inline-block;
+  float: inline-end;
+}
+
+.description {
+  background-image: url("/orb.gif");
+  background-repeat: no-repeat;
+  background-position: top left;
+  font-family: cutive monospace;
+  font-size: 15px;
+  display: inline;
+}
+
+#footer {
+  color: white;
+}
